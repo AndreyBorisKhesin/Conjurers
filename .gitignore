@@ -1,4 +1,12 @@
 Conjurers/node_modules/
+images/
 .ipynb_checkpoints/
 images/
 images_copy/
+test_images/
+platforms/
+plugins/
+www/
+Conjurers/resources/*
+*.png
+*.hdf5
