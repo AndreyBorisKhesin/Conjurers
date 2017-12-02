@@ -1,0 +1,8 @@
+{
+  "name": "Conjurers",
+  "app_id": "41f2038f",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
