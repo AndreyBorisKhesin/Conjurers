@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
- 
+
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-camera',
+  templateUrl: 'camera.html'
 })
-export class HomePage {
- 
+export class CameraPage {
+
   constructor(public navCtrl: NavController) {
- 
+
   }
- 
-  refresh(){
-    window['location'].reload();
-  }
- 
+
 }
