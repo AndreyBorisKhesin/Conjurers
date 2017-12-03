@@ -1,0 +1,64 @@
+{
+  "name": "cordova-plugin-camera-preview",
+  "version": "0.9.0",
+  "description": "Cordova plugin that allows camera interaction from HTML code for showing camera preview below or on top of the HTML.",
+  "keywords": [
+    "cordova",
+    "phonegap",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "android",
+    "ios",
+    "ionic",
+    "camera",
+    "cam",
+    "camera-preview",
+    "preview"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git"
+  },
+  "author": {
+    "name": "Weston Ganger",
+    "email": "westonganger@gmail.com",
+    "url": "solidfoundationwebdev.com"
+  },
+  "license": "Apache 2.0",
+  "homepage": "https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview",
+  "dependencies": {
+    "cordova": "*"
+  },
+  "devDependencies": {},
+  "gitHead": "727710cbaa5e184b5209f34eafa14d46fb1cda2a",
+  "bugs": {
+    "url": "https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview/issues"
+  },
+  "_id": "cordova-plugin-camera-preview@0.9.0",
+  "scripts": {},
+  "_shasum": "d65f9f37ac79bed46d0fb2707dc9c34e75c87631",
+  "_from": "cordova-plugin-camera-preview@latest",
+  "_npmVersion": "4.2.0",
+  "_nodeVersion": "7.9.0",
+  "_npmUser": {
+    "name": "westonganger",
+    "email": "westonganger@gmail.com"
+  },
+  "dist": {
+    "shasum": "d65f9f37ac79bed46d0fb2707dc9c34e75c87631",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-camera-preview/-/cordova-plugin-camera-preview-0.9.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "westonganger",
+      "email": "westonganger@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-camera-preview-0.9.0.tgz_1494352705984_0.3242937698960304"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-camera-preview/-/cordova-plugin-camera-preview-0.9.0.tgz"
+}

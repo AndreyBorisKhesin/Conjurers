@@ -51,6 +51,7 @@
         "plugins": {
             "cordova-plugin-device": {},
             "cordova-plugin-ionic-webview": {},
+            "cordova-plugin-camera-preview": {},
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
