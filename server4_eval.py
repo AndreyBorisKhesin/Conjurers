@@ -34,6 +34,7 @@ def predict(img):
         img: a (64, 64, 3) array
     '''
     prediction = model.predict(img, verbose=0)
+    print(prediction)
     class_labels = [range(n)]
     top3 = sorted(zip(prediction, class_labels), reverse=True)[:3]
     results = []
@@ -52,6 +53,8 @@ def predict(img):
             'index': label_idx, 'amount': amount})
 
         results.append(json_obj)
+
+    print(results)
     
     return results
 
