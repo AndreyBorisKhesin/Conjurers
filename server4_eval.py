@@ -26,7 +26,7 @@ idx_to_paths = {0: "apple", 1: "banana", 2: "black_coke",
     3: "blue_oreos", 4: "cadbury", 5: "chex_mix", 
     6: "gray_coke", 7: "hersheys", 8: "m&ms", 9: "orange_chips", 
     10: "pringles", 11: "red_coke", 12: "yellow_oreos"}
-path = '/Users/Chrsitine/Desktop/Conjurers/images_for_products/'
+path = '../assets/imgs/images_for_products/'
 
 def predict(img):
     '''
@@ -47,7 +47,8 @@ def predict(img):
 
         json_obj = json.dumps({'src': path+idx_to_paths[label_idx]+'.jpg', 
             'title': idx_to_labels[label_idx1],
-            'price': '$'+str(idx_to_prices[label_idx]), 'amount': amount})
+            'price': '$'+str(idx_to_prices[label_idx]), 
+            'index': label_idx, 'amount': amount})
 
         results.append(json_obj)
     
