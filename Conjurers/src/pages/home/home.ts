@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController, AlertController } from "ionic-angular";
+import { NavController, AlertController, ToastController } from "ionic-angular";
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { AuthService } from "../../providers/auth-service/auth-service";
 // import {
@@ -26,6 +26,7 @@ export class HomePage {
     public navCtrl: NavController,
     private camera: Camera,
     private alertCtrl: AlertController,
+    public toastCtrl: ToastController,
     public authService: AuthService
     //private transfer: FileTransfer, private file: File, private fileUploadOptions: FileUploadOptions
     ) {
@@ -173,7 +174,16 @@ export class HomePage {
         console.log(err);
       }
     );
-  }
+    }
+
+    presentToast(name) {
+        let toast = this.toastCtrl.create({
+              message: name + ' was added to cart.',
+              duration: 3000,
+              position: "top"
+                        });
+                            toast.present();
+                              }
   sendData(imageData) {
   this.userData.imageB64 = imageData; 
   this.userData.user_id = "1";
@@ -182,7 +192,8 @@ export class HomePage {
   this.authService.postData(imageData).then( 
   result => { 
     this.msg = "we have result " + result;
-    this.items[result].amount++; 
+    this.items[result].amount++;
+    this.presentToast(this.items[result].title)
   }, err => { 
     this.isError = true;
     this.errCode = err;
