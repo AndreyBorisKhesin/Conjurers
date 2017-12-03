@@ -3,19 +3,14 @@
     <ion-title>
       Shopping Cart
     </ion-title>
-
-    <button ion-button end icon-only (click)="takePhoto()">
-      <ion-icon name="ios-camera"></ion-icon>
-    </button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <p>{{isError + errCode}}</p>
   <ion-list>
     <ion-item *ngFor="let item of items">
       <ion-avatar item-start>
-        <img src={{item.src}}>
+        <img src="{{item.src}}">
       </ion-avatar>
       <h2>{{item.title}}</h2>
       <p>${{item.price}} (x{{item.amount}})</p>
@@ -23,10 +18,19 @@
   </ion-list>
 </ion-content>
 
-<ion-footer>
-  <button ion-button (click)=pay()>
-    <ion-title>
-      Checkout (${{total()}})
-    </ion-title>
-  </button>
-</ion-footer>
+<ion-footer><ion-grid><ion-row>
+  <ion-col col-6>
+    <button ion-button class="foot" (click)=takePhoto()>
+      <ion-title>
+          Scan Item <ion-icon padding-right name="ios-camera"></ion-icon>
+      </ion-title>
+    </button>
+  </ion-col>
+  <ion-col col-6>
+    <button ion-button class="foot" (click)=pay()>
+      <ion-title>
+        Checkout ($ {{total()}})
+      </ion-title>
+    </button>
+  </ion-col>
+</ion-row></ion-grid></ion-footer>

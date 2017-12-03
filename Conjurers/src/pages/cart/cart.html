@@ -4,9 +4,11 @@
       Shopping Cart
     </ion-title>
 
-    <button ion-button icon-only (click)="takePicture()">
-      <ion-icon name="ios-camera"></ion-icon>
-    </button>
+    <ion-buttons end>
+      <button (click)="takePicture()">
+        <ion-icon name="ios-camera"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -14,7 +16,7 @@
   <ion-list>
     <ion-item *ngFor="let item of items">
       <ion-avatar item-start>
-        <img src={{item.src}}>
+        <img src="{{item.src}}" />
       </ion-avatar>
       <h2>{{item.title}}</h2>
       <p>${{item.price}} (x{{item.amount}})</p>
