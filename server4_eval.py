@@ -5,6 +5,7 @@ import tensorflow as tf
 import keras
 from keras.models import load_model
 import json
+from PIL import Image
 
 
 app = Flask(__name__)
@@ -33,6 +34,7 @@ def predict(img):
         img: a (64, 64, 3) array
     '''
     prediction = model.predict(img, verbose=0)
+    print(prediction)
     class_labels = [range(n)]
     top3 = sorted(zip(prediction, class_labels), reverse=True)[:3]
     results = []
@@ -51,6 +53,8 @@ def predict(img):
             'index': label_idx, 'amount': amount})
 
         results.append(json_obj)
+
+    print(results)
     
     return results
 
@@ -61,9 +65,13 @@ def match(matrix):
 @app.route("/", methods=['POST'])
 def handle():
     img_base64 = request.data
-    img = np.reshape(np.frombuffer(base64.b64decode(img_base64), np.uint8), 
-        (64, 64, 3))
-    results = prediction(img)
+    # img = np.reshape(np.frombuffer(base64.b64decode(img_base64), np.uint8), (64, 64, 3))
+    with open("temp.jpg", "wb") as fh:
+        fh.write(img_base64.decode('base64'))
+    img = Image.open("temp.jpg")
+    new_img = img.resize((64, 64))
+    img_array = np.array(new_img.getdata(), np.uint8).reshape(new_img.size[1], new_img.size[0], 3)
+    results = prediction(img_array)
 
     return results
 
