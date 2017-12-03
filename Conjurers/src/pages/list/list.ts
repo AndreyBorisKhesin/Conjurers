@@ -20,11 +20,13 @@ export class ListPage {
     takePhoto();
   }
 
-  decrement(var: index) {
-    this.matches[index]--;
+  decrement(index: number) {
+    if (this.matches[index] > 0) {
+      this.matches[index]--;
+    }
   }
 
-  increment(var: index) {
+  increment(index: number) {
     this.matches[index]++;
   }
 
@@ -34,7 +36,7 @@ export class ListPage {
 
   submit() {
     this.callback = this.navParams.get("callback")
-    this.callback(matches).then(() => {
+    this.callback(this.matches).then(() => {
       this.navCtrl.pop();
     });
   }
