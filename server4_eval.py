@@ -29,13 +29,6 @@ idx_to_paths = {0: "apple", 1: "banana", 2: "black_coke",
     10: "pringles", 11: "red_coke", 12: "yellow_oreos"}
 path = '../assets/imgs/images_for_products/'
 
-def make_square(im, min_size=256, fill_color=(0, 0, 0, 0)):
-    x, y = im.size
-    size = max(min_size, x, y)
-    new_im = Image.new('RGBA', (size, size), fill_color)
-    new_im.paste(im, ((size - x) / 2, (size - y) / 2))
-    return new_im.resize((64, 64))
-
 def predict(img):
     '''
         img: a (64, 64, 3) array
@@ -73,7 +66,7 @@ def handle():
     with open("temp.jpg", "wb") as fh:
         fh.write(img_base64.decode('base64'))
     img = Image.open("temp.jpg")
-    new_img = make_square(img)
+    new_img = img.resize((64, 64))
     img_array = np.array(new_img.getdata(), np.uint8).reshape(new_img.size[1], new_img.size[0], 3)
     results = prediction(img_array)
 
