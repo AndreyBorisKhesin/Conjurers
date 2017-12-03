@@ -11,3 +11,4 @@ Conjurers/resources/*
 *.hdf5
 .idea/
 images_560_compressed/
+.sourcemaps/main.js.map
