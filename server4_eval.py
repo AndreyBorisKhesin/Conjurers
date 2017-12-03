@@ -64,7 +64,7 @@ def match(matrix):
 
 @app.route("/", methods=['POST'])
 def handle():
-    img_base64 = request.data
+    img_base64 = request.values.get("imageB64")
     # img = np.reshape(np.frombuffer(base64.b64decode(img_base64), np.uint8), (64, 64, 3))
     with open("temp.jpg", "wb") as fh:
         fh.write(img_base64.decode('base64'))
