@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
-let url = 'https://api.thewallscript.com/restful/';
+let url = 'http://localhost:5000';
 
 @Injectable()
 export class AuthService {

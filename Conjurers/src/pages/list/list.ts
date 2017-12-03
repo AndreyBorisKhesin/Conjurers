@@ -17,17 +17,17 @@ export class ListPage {
     private camera: Camera,
     public authService: AuthService
   ) {
-    takePhoto();
+  // this.takePhoto();
   }
 
   decrement(index: number) {
-    if (this.matches[index] > 0) {
-      this.matches[index]--;
+    if (this.matches[index].amount > 0) {
+      this.matches[index].amount--;
     }
   }
 
   increment(index: number) {
-    this.matches[index]++;
+    this.matches[index].amount++;
   }
 
   pop() {
@@ -54,8 +54,8 @@ export class ListPage {
 
     this.camera.getPicture(options).then(
       imageData => {
-        userData.image = imageData;
-        this.authService.postData(userData).then(
+        this.userData.image = imageData;
+        this.authService.postData(this.userData).then(
           result => {
             this.matches = result;
           },

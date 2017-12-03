@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Camera, CameraOptions } from "@ionic-native/camera";
+import { AuthService } from "../../providers/auth-service/auth-service";
 
-import { ListPage } from '../list/list'
 import { PaidPage } from '../paid/paid'
 import { WelcomePage } from '../welcome/welcome'
 
@@ -10,9 +11,13 @@ import { WelcomePage } from '../welcome/welcome'
   templateUrl: 'cart.html'
 })
 export class CartPage {
-  private amounts: any;
-
-  constructor(public navCtrl: NavController) {
+  private items: any;
+  userData = { image: "" };
+  constructor(
+       public navCtrl: NavController,
+            private navParams: NavParams,
+                 private camera: Camera,
+                 public authService: AuthService) {
     this.items = [
       {
         src: "../assets/imgs/images_for_products/apple.jpg",
@@ -93,20 +98,7 @@ export class CartPage {
         amount: 0
       }
     ]
-    camera();
-  }
-
-  camera() {
-    this.navCtrl.push(ListPage, {
-      callback: function(params) {
-        return new Promise((resolve, reject) => {
-          for (let match in params) {
-            this.items[match.index].amount += match.amount
-          }
-          resolve();
-        });
-      }
-    })
+    // this.camera();
   }
 
   pay() {
@@ -114,10 +106,37 @@ export class CartPage {
   }
 
   total() {
-    total: number;
+    let total: number;
     total = 0;
-    for (let item in this.items) {
+    for (let item of this.items) {
       total += item.price * item.amount;
     }
+    return total;
+  }
+  
+  takePicture() {
+    const options: CameraOptions = {
+      quality: 50,
+      allowEdit: true,
+      targetWidth: 320,
+      targetHeight: 320,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    };
+
+    this.camera.getPicture(options).then(
+      imageData => {
+        this.userData.image = imageData;
+        this.authService.postData(this.userData).then(
+          result => {
+            this.items[result[0].index].amount++;
+          },
+          err => {}
+        );
+      },
+      err => {
+      }
+    );
   }
 }

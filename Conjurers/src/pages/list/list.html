@@ -24,9 +24,9 @@
       <p>
        {{match.price}} 
       </p>
-      <ion-icon name="remove-circle" (click)="decrement({{match.index}})">
+      <ion-icon name="remove-circle" (click)="decrement(match.index)"></ion-icon>
         {{match.amount}}
-      <ion-icon name="add-circle" (click)="increment({{match.index}})">
+      <ion-icon name="add-circle" (click)="increment(match.index)"></ion-icon>
     </ion-card-content>
   </ion-card>
 </ion-content>
