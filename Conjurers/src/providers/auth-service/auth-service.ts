@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
-let url = 'http://localhost:5000';
+let url = 'https://619f1ab9.ngrok.io';
 
 @Injectable()
 export class AuthService {
   constructor(public http: Http) {}
 
-  postData(image){
+  postData(image): Promise<number> {
     return new Promise((resolve, reject) =>{
       let headers = new Headers();
-      this.http.post(url, JSON.stringify(image), {headers: headers}).
+      this.http.post(url, image, {headers: headers}).
       subscribe(res => {
-        resolve(res.json());
+        resolve(Number(res));
       }, (err) => {
         reject(err);
       });

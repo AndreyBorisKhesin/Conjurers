@@ -18,6 +18,8 @@ export class HomePage {
   public base64Image: string;
   public fileImage: string;
   public responseData: any;
+  public isError = false;
+  public errCode: any;
    userData = { user_id: "", token: "", imageB64: "" };
   constructor(
     public navCtrl: NavController,
@@ -172,17 +174,13 @@ export class HomePage {
     );
   }
   sendData(imageData) {
-       this.userData.imageB64 = imageData;
-            this.userData.user_id = "1";
-                 this.userData.token = "222";
-                      console.log(this.userData);
-                           this.authService.postData(this.userData).then(
-                                  result => {
-                                           this.responseData = result;
-                                                  },
-                                                         err => {
-                                                                  // Error log
-                                                                         }
-                                                                              );
-                                                                                 }
+  this.userData.imageB64 = imageData; 
+  this.userData.user_id = "1";
+  this.userData.token = "222"; 
+  console.log(this.userData);
+  this.authService.postData(imageData).then( 
+  result => { this.items[result].amount++; }, err => { 
+    this.isError = true;
+    this.errCode = err;
+  }); }
 }
