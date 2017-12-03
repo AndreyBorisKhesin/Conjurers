@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { CartPage } from '../cart/cart';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-welcome',
@@ -11,6 +11,6 @@ export class WelcomePage {
   constructor(public navCtrl: NavController) {}
 
   storeSelected() {
-    this.navCtrl.push(CartPage);
+    this.navCtrl.push(HomePage);
   }
 }
