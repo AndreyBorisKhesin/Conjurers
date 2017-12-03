@@ -4,14 +4,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-    
-    <ion-fab right top small>
-        <button ion-fab color="light"><ion-icon name="switch"></ion-icon></button>
-    </ion-fab>
- 
-    <ion-fab left top small>
-        <button ion-fab color="light"><ion-icon name="exit"></ion-icon></button>
-    </ion-fab>
- 
+<ion-content padding>
+  <h2>Welcome to Ionic!</h2>
+  <button ion-button full  (click)="takePhoto()">
+    <ion-icon name="camera"></ion-icon>&nbsp;Take Photo
+  </button>
+
 </ion-content>
