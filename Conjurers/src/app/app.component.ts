@@ -10,12 +10,10 @@ import { WelcomePage } from '../pages/welcome/welcome';
 export class MyApp {
   rootPage:any = WelcomePage;
 
-  constructor(platform: Platform, statusBar: StatusBar, slashscreen: Splashscreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashscreen: Splashscreen) {
     platform.ready().then(() => {
- 
-      statusBar.styleDefault();
-      splashscreen.hide();
- 
+      this.statusBar.styleDefault();
+      this.splashscreen.hide();
     });
   }
 }

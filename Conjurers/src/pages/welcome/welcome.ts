@@ -1,20 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ListPage } from '../list/list';
+
+import { CartPage } from '../cart/cart';
 
 @Component({
   selector: 'page-welcome',
   templateUrl: 'welcome.html'
 })
 export class WelcomePage {
-
-  constructor(public navCtrl: NavController) {
-
-  }
+  constructor(public navCtrl: NavController) {}
 
   storeSelected() {
-    console.log("storeSelected()");
-    this.navCtrl.push(ListPage);
+    this.navCtrl.push(CartPage);
   }
-
 }
