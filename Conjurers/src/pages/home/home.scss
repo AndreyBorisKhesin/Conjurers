@@ -1,16 +1,8 @@
-ion-app, ion-content {
-  background-color: transparent !important;
+.camera-content {
+background-color: transparent !important;
+visibility: visible; 
 }
 
 page-home {
- 
-    #ionball {
-        position: absolute;
-        bottom: 30px;
-        left: calc(50% - 50px);
-        width: 100px;
-        height: 100px;
-        background-image: url(../assets/imgs/red_code/thumb_IMG_1053_1024.jpg);
-    }
  
 }

@@ -24,9 +24,13 @@ export class HomePage {
 
     this.cameraPreview.startCamera(this.options);
   }
+
+  ionViewWillLoad() {
+    document.getElementsByTagName('html')[0].style.visibility = 'hidden';
+  }
  
-  refresh(){
-    window['location'].reload();
+  ionViewWillLeave() {
+    document.getElementsByTagName('html')[0].style.visibility = 'visible';
   }
  
 }
