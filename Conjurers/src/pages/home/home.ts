@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-preview';i
+import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-preview';
  
 @Component({
   selector: 'page-home',
